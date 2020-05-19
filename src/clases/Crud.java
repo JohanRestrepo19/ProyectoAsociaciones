@@ -7,11 +7,12 @@ import java.util.ArrayList;
 
 public class Crud {
     
+    
     //Metodo para buscar el indice de un productor
-    public static int buscarIndexProductor(ArrayList<Productor> productores, int documentoBuscado){
+    private static <T extends Productor> int buscarIndexProductor(ArrayList<T> productores, int documentoBuscado){
         int indexProductor = -1;
         
-        for (Productor productor : productores) {
+        for (T productor : productores) {
             if(productor.getDocumentoIdentidad() == documentoBuscado){
                 indexProductor = productores.indexOf(productor);
                 break;
@@ -23,9 +24,9 @@ public class Crud {
     //Metodo para crear un productor
     public static Productor crearProductor() throws IOException{
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-        Productor nuevoProductor = new Productor();
         int documentoProductor;
         String nombreProductor, apellidoProductor;
+        Productor nuevoProductor = new Productor(); 
         
         System.out.println("Nombre productor: ");
         nombreProductor = entrada.readLine();
@@ -43,11 +44,11 @@ public class Crud {
     }
     
     //Metodo para buscar un productor
-    public static void buscarProductor(ArrayList<Productor> productores) throws IOException{
+    public static <T extends Productor> void buscarProductor(ArrayList<T> productores) throws IOException{
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-        Productor productorBuscado;
+        T productorBuscado;
         int documentoProductor, indexProductorBuscado, opcionInformacion;
-
+        
         System.out.println("Documento identidad del productor: ");
         documentoProductor = Integer.parseInt(entrada.readLine());
         
@@ -76,10 +77,10 @@ public class Crud {
         }
     }
     
-    //Metodo para actualizar la informacion de un productor
-    public static void actualizarProductor(ArrayList<Productor> productores) throws IOException{
+    //Metodo para actualizar informacion de un productor
+    public static <T extends Productor> void actualizarProductor(ArrayList<T> productores) throws IOException{
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-        Productor productorBuscado;
+        T productorBuscado;
         int documentoProductor, indexProductorBuscado;
         
         System.out.println("Documento identidad del productor: ");
@@ -101,13 +102,13 @@ public class Crud {
         else{
             System.out.println("El productor con documento " + documentoProductor + " no fue encontrado.");
         }
-        
     }
     
-    //Metodo para eliminar un productor
-    public static void eliminarProductor(ArrayList<Productor> productores) throws IOException{
+    
+    //Metodo para eliminar productor
+    public static <T extends Productor> void eliminarProductor(ArrayList<T> productores) throws IOException{
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-        Productor productorBuscado;
+        T productorBuscado;
         int documentoProductor, indexProductorBuscado;
         
         System.out.println("Documento identidad del productor: ");
@@ -115,7 +116,7 @@ public class Crud {
         
         indexProductorBuscado = buscarIndexProductor(productores, documentoProductor);
         
-        if(indexProductorBuscado >= 0){
+        if (indexProductorBuscado >= 0) {
             productorBuscado = productores.get(indexProductorBuscado);
             productores.remove(productorBuscado);
             System.out.println("El productor con documento " + documentoProductor + " fue eliminado del sistema.");
