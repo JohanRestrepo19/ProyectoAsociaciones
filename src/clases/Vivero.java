@@ -97,13 +97,19 @@ public class Vivero {
     }
     
     public void mostrarInformacion(){
+        System.out.println("");
+        System.out.println("------------");
         System.out.println("Nombre: " + this.nombre);
         System.out.println("Codigo: " + this.codigoVivero);
         System.out.println("Departamento: " + this.departamento);
         System.out.println("Municipio: " + this.municipio);
+        System.out.println("------------");
+        System.out.println("");
     }
     
     public void mostrarInformacionLabores(){
+        System.out.println("");
+        
         System.out.println("Nombre vivero: " + this.nombre);
         System.out.println("Procesos: ");
         for (Proceso proceso : this.procesos) {
@@ -113,6 +119,7 @@ public class Vivero {
                 labor.mostrarInformacion();
             }
         }
+        System.out.println("");
     }
     
     

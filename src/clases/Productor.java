@@ -94,10 +94,18 @@ public class Productor {
         }
     }
     
+    public void mostrarInformacionProductor(){
+        System.out.println("");
+        System.out.printf("Nombre: %s \n", this.nombre);
+        System.out.printf("Apellido: %s \n", this.apellido);
+        System.out.printf("Documento identidad: %d \n", this.documentoIdentidad);
+        System.out.println("");
+    }
+    
     public void mostrarInformacionViveros(){
         int idVivero = 1;
         
-        for (Vivero vivero : this.viveros) {
+        for (Vivero vivero : this.viveros){
             System.out.println("Vivero #" + idVivero);
             vivero.mostrarInformacion();
             idVivero++;
@@ -107,12 +115,15 @@ public class Productor {
     
     public void mostrarInformacionLaboresViveros(){
         int idVivero = 1;
+        System.out.println("");
+        System.out.println("------------");
         
         for (Vivero vivero : this.viveros) {
             System.out.println("Vivero #" + idVivero);
             vivero.mostrarInformacionLabores();
             idVivero++;
         }
+        System.out.println("------------");
         System.out.println("");
     }
     

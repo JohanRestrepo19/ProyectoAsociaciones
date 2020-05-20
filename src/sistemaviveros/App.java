@@ -9,13 +9,14 @@ import java.util.ArrayList;
 public class App {
     
     public static void imprimirMenu(){
-        System.out.println("------------");
+        System.out.println("");
+        System.out.println("------- Menu principal -------");
         System.out.println("1. Añadir productor.");
         System.out.println("2. Buscar productor.");
         System.out.println("3. Actualizar productor.");
         System.out.println("4. Eliminar productor.");
         System.out.println("5. Salir");
-        System.out.println("------------");
+        System.out.println("-------------------");
         System.out.println("");
     }
 

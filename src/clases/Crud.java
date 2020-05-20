@@ -56,15 +56,22 @@ public class Crud {
         
         if(indexProductorBuscado >= 0){
             productorBuscado = productores.get(indexProductorBuscado);
+            System.out.println("");
+            System.out.println("------------");
             System.out.println("1. Mostrar viveros.");
             System.out.println("2. Mostrar labores viveros.");
+            System.out.println("------------");
+            System.out.println("");
+            
             opcionInformacion = Integer.parseInt(entrada.readLine());
             
             switch (opcionInformacion) {
                 case 1:
+                    productorBuscado.mostrarInformacionProductor();
                     productorBuscado.mostrarInformacionViveros();
                     break;
                 case 2:
+                    productorBuscado.mostrarInformacionProductor();
                     productorBuscado.mostrarInformacionLaboresViveros();
                     break;
                 default:
@@ -90,6 +97,10 @@ public class Crud {
         
         if(indexProductorBuscado >= 0){
             productorBuscado = productores.get(indexProductorBuscado);
+            System.out.println("Información actual: ");
+            productorBuscado.mostrarInformacionProductor();
+            
+            System.out.println("Nueva informacion: ");
             System.out.println("Nuevo nombre: ");
             productorBuscado.setNombre(entrada.readLine());
             System.out.println("Nuevo apellido: ");
@@ -119,7 +130,9 @@ public class Crud {
         if (indexProductorBuscado >= 0) {
             productorBuscado = productores.get(indexProductorBuscado);
             productores.remove(productorBuscado);
-            System.out.println("El productor con documento " + documentoProductor + " fue eliminado del sistema.");
+            System.out.println("El productor con informacion: ");
+            productorBuscado.mostrarInformacionProductor();
+            System.out.println("Fue eliminado");
         }
         else{
             System.out.println("El productor con documento " + documentoProductor + " no fue encontrado.");
